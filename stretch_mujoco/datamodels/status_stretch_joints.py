@@ -7,6 +7,10 @@ class PositionVelocity:
     pos: float
     vel: float
 
+    def __getitem__(self, name: str):
+        """For backward compatibility: allows access with the square brackets []"""
+        return getattr(self, name)
+
     @staticmethod
     def default():
         return PositionVelocity(0, 0)
@@ -18,6 +22,10 @@ class BaseStatus:
     theta:float
     x_vel:float
     theta_vel:float
+
+    def __getitem__(self, name: str):
+        """For backward compatibility: allows access with the square brackets []"""
+        return getattr(self, name)
 
     @staticmethod
     def default():

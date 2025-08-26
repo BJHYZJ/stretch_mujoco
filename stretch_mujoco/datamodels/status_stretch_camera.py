@@ -115,6 +115,10 @@ class StatusStretchCameras:
     def to_dict(self):
         return asdict(self)
     
+    def __getitem__(self, name: str):
+        """For backward compatibility: allows access with the square brackets []"""
+        return getattr(self, name)
+    
     def copy(self):
         return StatusStretchCameras.from_dict(copy.copy(self.to_dict()))
     
